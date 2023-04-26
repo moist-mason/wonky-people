@@ -1,5 +1,6 @@
 package com.moistmason.wonkypeople;
 
+import com.moistmason.wonkypeople.effect.WonkyEffects;
 import com.moistmason.wonkypeople.entity.WonkyEntityTypes;
 import com.moistmason.wonkypeople.item.WonkyItems;
 import com.mojang.logging.LogUtils;
@@ -25,7 +26,8 @@ public class WonkyPeople {
 
         DeferredRegister<?>[] registers = {
                 WonkyEntityTypes.ENTITY_TYPES,
-                WonkyItems.ITEMS
+                WonkyItems.ITEMS,
+                WonkyEffects.MOB_EFFECTS
         };
 
         for (DeferredRegister<?> register : registers) {

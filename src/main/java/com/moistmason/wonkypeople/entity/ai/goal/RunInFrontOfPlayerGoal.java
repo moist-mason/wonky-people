@@ -25,14 +25,12 @@ public class RunInFrontOfPlayerGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        Player player = level.getNearestPlayer(wonky, 20);
+        Player player = getPlayer();
         if (player != null) {
-            // Wonky only targets player in survival/hardcore/adventure modes
-            if (player.isCreative() || player.isSpectator()) {
-                return false;
+            // Wonky following conditions
+            if (!(player.isCreative() || player.isSpectator()) && !player.isInvisible()) {
+                return wonky.distanceTo(player) < 20.0F;
             }
-            // goal can only be run if the Wonky's distance to the player is less than 20 blocks.
-            return this.wonky.distanceTo(player) < 20.0F;
         }
         return false;
     }
@@ -40,12 +38,12 @@ public class RunInFrontOfPlayerGoal extends Goal {
     @Override
     public boolean canContinueToUse() {
         // Continue to run as long as the pathfinding is ongoing.
-        return !this.wonky.getNavigation().isDone();
+        return !wonky.getNavigation().isDone();
     }
 
     @Override
     public void start() {
-        Player player = wonky.getLevel().getNearestPlayer(wonky, 20);
+        Player player = getPlayer();
 
         if (player != null) {
             // get front of player
@@ -56,17 +54,20 @@ public class RunInFrontOfPlayerGoal extends Goal {
             double posY = player.position().y + playerLook.y;
             double posZ = player.position().z + playerLook.z;
 
+            // make Wonky look at the player dead in the eye.
+            wonky.getLookControl().setLookAt(player);
+
             // make Wonky navigate to new coordinates.
             wonky.getNavigation().moveTo(posX, posY, posZ, wonky.getSpeed() * speedModifier);
-
-            // make Wonky look at the player dead in the eye.
-            wonky.getLookAngle().add(playerLook.yRot(180F));
         }
     }
 
     @Override
     public void stop() {
-        // Stop the wonky.
         wonky.getMoveControl().strafe(0, 0);
+    }
+
+    public Player getPlayer() {
+        return level.getNearestPlayer(wonky, 20);
     }
 }

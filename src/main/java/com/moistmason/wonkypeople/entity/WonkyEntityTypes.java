@@ -18,9 +18,4 @@ public class WonkyEntityTypes {
             EntityType.Builder.of(Wonky::new, MobCategory.CREATURE).sized(0.6F, 1.95F).build(new ResourceLocation(WonkyPeople.MODID, "wonky_person").toString()));
     public static final RegistryObject<EntityType<HappyWonky>> HAPPY_WONKY = ENTITY_TYPES.register("happy_wonky", () ->
             EntityType.Builder.of(HappyWonky::new, MobCategory.CREATURE).sized(0.6F, 1.95F).build(new ResourceLocation(WonkyPeople.MODID, "happy_wonky").toString()));
-
-    // TODO: Do I need this???
-    public static void register(IEventBus eventBus) {
-        ENTITY_TYPES.register(eventBus);
-    }
 }

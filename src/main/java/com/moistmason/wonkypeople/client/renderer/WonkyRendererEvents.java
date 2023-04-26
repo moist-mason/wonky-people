@@ -1,8 +1,8 @@
 package com.moistmason.wonkypeople.client.renderer;
 
 import com.moistmason.wonkypeople.WonkyPeople;
-import com.moistmason.wonkypeople.client.model.WonkyModelLayers;
-import com.moistmason.wonkypeople.client.model.WonkyPersonModel;
+import com.moistmason.wonkypeople.item.food.model.WonkyModelLayers;
+import com.moistmason.wonkypeople.item.food.model.WonkyPersonModel;
 import com.moistmason.wonkypeople.client.renderer.entity.HappyWonkyRenderer;
 import com.moistmason.wonkypeople.client.renderer.entity.WonkyPersonRenderer;
 import com.moistmason.wonkypeople.entity.WonkyEntityTypes;

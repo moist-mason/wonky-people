@@ -1,4 +1,4 @@
-package com.moistmason.wonkypeople.client.model;
+package com.moistmason.wonkypeople.item.food.model;
 
 import com.moistmason.wonkypeople.WonkyPeople;
 import net.minecraft.client.model.geom.ModelLayerLocation;

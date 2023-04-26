@@ -1,4 +1,4 @@
-package com.moistmason.wonkypeople.client.model;
+package com.moistmason.wonkypeople.item.food.model;
 
 import com.moistmason.wonkypeople.entity.passive.Wonky;
 import net.minecraft.client.model.HumanoidModel;
