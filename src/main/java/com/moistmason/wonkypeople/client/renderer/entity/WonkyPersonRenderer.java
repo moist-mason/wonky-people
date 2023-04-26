@@ -1,8 +1,8 @@
 package com.moistmason.wonkypeople.client.renderer.entity;
 
 import com.moistmason.wonkypeople.WonkyPeople;
-import com.moistmason.wonkypeople.item.food.model.WonkyModelLayers;
-import com.moistmason.wonkypeople.item.food.model.WonkyPersonModel;
+import com.moistmason.wonkypeople.client.renderer.model.WonkyModelLayers;
+import com.moistmason.wonkypeople.client.renderer.model.WonkyPersonModel;
 import com.moistmason.wonkypeople.entity.passive.Wonky;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
