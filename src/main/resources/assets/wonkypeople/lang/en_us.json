@@ -2,5 +2,10 @@
     "creativetab.wonkypeople.items": "Wonky Items",
 
     "item.wonkypeople.wonky_person_spawn_egg": "Wonky Person Spawn Egg",
-    "item.wonkypeople.happy_wonky_spawn_egg": "Happy Wonky Spawn Egg"
+    "item.wonkypeople.happy_wonky_spawn_egg": "Happy Wonky Spawn Egg",
+    "item.wonkypeople.happy_dust": "Happy Dust",
+    "item.wonkypeople.happy_chicken": "Happy Chicken",
+
+    "effect.wonkypeople.swarm": "Swarm",
+    "effect.wonkypeople.falling_anvil": "Falling Anvil"
 }

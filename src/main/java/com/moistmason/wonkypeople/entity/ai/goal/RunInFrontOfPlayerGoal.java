@@ -50,15 +50,13 @@ public class RunInFrontOfPlayerGoal extends Goal {
             Vec3 playerLook = player.getLookAngle();
 
             // get coordinates matching immediate front of player
-            double posX = player.position().x + playerLook.x;
-            double posY = player.position().y + playerLook.y;
-            double posZ = player.position().z + playerLook.z;
+            Vec3 front = player.position().add(playerLook);
 
             // make Wonky look at the player dead in the eye.
             wonky.getLookControl().setLookAt(player);
 
             // make Wonky navigate to new coordinates.
-            wonky.getNavigation().moveTo(posX, posY, posZ, wonky.getSpeed() * speedModifier);
+            wonky.getNavigation().moveTo(front.x, front.y, front.z, wonky.getSpeed() * speedModifier);
         }
     }
 

@@ -27,28 +27,37 @@ public class SwarmEffect extends MobEffect {
 
             spawnBees(entity, posX, posY, posZ);
         }
+        super.applyEffectTick(entity, amplifier);
     }
 
+    @Override
+    public boolean isDurationEffectTick(int duration, int amplifier) {
+        return true;
+    }
+
+    /**
+     * Spawns a random number of angry bees around the entity with the Swarm effect.
+     * @param entity The entity with the effected.
+     * @param posX The entity's X position.
+     * @param posY The entity's Y position.
+     * @param posZ The entity's Z position.
+     */
     public void spawnBees(LivingEntity entity, double posX, double posY, double posZ) {
         ServerLevel level = (ServerLevel) entity.getLevel();
-
-        // iterate through random amount of bees and spawn them. Is there a cleaner way to do this?
-        int[] amount = new int[getRandomBeeAmount()];
-        for (int i = 0; i < amount.length; i++) {
-            Bee bee = new Bee(EntityType.BEE, level);
-            level.addFreshEntity(bee);
-            bee.setPos(getRandomPos(posX), posY, getRandomPos(posZ));
-            bee.isAngry();
-            bee.setPersistentAngerTarget(entity.getUUID());
-        }
+        Bee bee = new Bee(EntityType.BEE, level);
+        level.addFreshEntity(bee);
+        bee.setPos(getRandomOffsetPos(posX), posY, getRandomOffsetPos(posZ));
+        bee.isAngryAt(entity);
+        bee.setPersistentAngerTarget(entity.getUUID());
+        bee.setRemainingPersistentAngerTime(600);
     }
 
-    public int getRandomBeeAmount() {
-        Random random = new Random();
-        return random.nextInt(2, 5);
-    }
-
-    public double getRandomPos(double position) {
+    /**
+     * Gets a random offset position from the input value.
+     * @param position The original position value to offset from.
+     * @return The offset position value.
+     */
+    public double getRandomOffsetPos(double position) {
         Random randRadius = new Random();
         return position + randRadius.nextDouble(2, 5);
     }

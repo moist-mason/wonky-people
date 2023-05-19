@@ -18,13 +18,9 @@ public class WonkyCreativeTabs {
     public static void registerCreativeModeTabs(CreativeModeTabEvent.Register event) {
         WONKY_ITEMS = event.registerCreativeModeTab(
                 new ResourceLocation(WonkyPeople.MODID, "wonky_items_tab"),
-                builder -> builder.icon(() -> new ItemStack(WonkyItems.HAPPY_DUST.get())).title(Component.translatable("creativetab.wonkypeople.items"))
-                        .displayItems((features, output) -> {
-                            output.accept(WonkyItems.WONKY_PERSON_SPAWN_EGG.get());
-                            output.accept(WonkyItems.HAPPY_WONKY_SPAWN_EGG.get());
-                            output.accept(WonkyItems.HAPPY_DUST.get());
-                            output.accept(WonkyItems.HAPPY_CHICKEN.get());
-                        })
+                builder -> builder.icon(() -> new ItemStack(WonkyItems.HAPPY_DUST.get()))
+                        .title(Component.translatable("creativetab.wonkypeople.items"))
+                        .displayItems((parameters, output) -> WonkyItems.getAllItems().forEach(output::accept))
         );
     }
 }

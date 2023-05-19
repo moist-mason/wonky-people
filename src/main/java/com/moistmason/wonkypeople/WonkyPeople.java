@@ -14,6 +14,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import org.slf4j.Logger;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Mod(WonkyPeople.MODID)
 public class WonkyPeople {
     public static final String MODID = "wonkypeople";
@@ -24,15 +27,13 @@ public class WonkyPeople {
 
         eventBus.addListener(this::commonSetup);
 
-        DeferredRegister<?>[] registers = {
+        List<DeferredRegister<?>> registers = Arrays.asList(
                 WonkyEntityTypes.ENTITY_TYPES,
                 WonkyItems.ITEMS,
                 WonkyEffects.MOB_EFFECTS
-        };
+        );
 
-        for (DeferredRegister<?> register : registers) {
-            register.register(eventBus);
-        }
+        registers.forEach(register -> register.register(eventBus));
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
