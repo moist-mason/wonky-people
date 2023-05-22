@@ -1,4 +1,4 @@
-package com.moistmason.wonkypeople.client.renderer.model;
+package com.moistmason.wonkypeople.client.model;
 
 import com.moistmason.wonkypeople.WonkyPeople;
 import net.minecraft.client.model.geom.ModelLayerLocation;
