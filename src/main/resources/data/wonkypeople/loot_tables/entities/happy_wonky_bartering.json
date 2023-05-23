@@ -1,0 +1,39 @@
+{
+    "type": "minecraft:barter",
+    "pools": [
+        {
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:iron_nugget",
+                    "weight": 8
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:iron_ingot",
+                    "weight": 4
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "wonkypeople:happy_dust",
+                    "weight": 3
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:gold_nugget",
+                    "weight": 2
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "wonkypeople:happy_chicken",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:gold_ingot",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

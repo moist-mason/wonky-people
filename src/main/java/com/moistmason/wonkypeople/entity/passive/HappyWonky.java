@@ -2,6 +2,7 @@ package com.moistmason.wonkypeople.entity.passive;
 
 import com.moistmason.wonkypeople.entity.WonkyEntityTypes;
 import com.moistmason.wonkypeople.entity.ai.goal.RunInFrontOfPlayerGoal;
+import com.moistmason.wonkypeople.item.WonkyItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.BlockTags;
@@ -14,14 +15,16 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 
-import java.util.Random;
+import java.util.*;
 
-public class HappyWonky extends Wonky {
+public class HappyWonky extends EmotionalWonky {
     public HappyWonky(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
@@ -35,5 +38,15 @@ public class HappyWonky extends Wonky {
     public void registerGoals() {
         super.registerGoals();
         this.goalSelector.addGoal(4, new RunInFrontOfPlayerGoal(this, 2.0F));
+    }
+
+    public List<Item> getCurrencies() {
+        List<Item> uniqueCurrencies = new ArrayList<>(Arrays.asList(
+              Items.CHICKEN,
+              Items.SUNFLOWER,
+              Items.DANDELION
+        ));
+        universalCurrencies.addAll(uniqueCurrencies);
+        return universalCurrencies;
     }
 }
